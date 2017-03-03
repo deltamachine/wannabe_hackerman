@@ -13,7 +13,7 @@ def parse_surface_forms():
     return surface_forms
 
 def count_labels(surface_forms):
-    with open ('C:/Users/Анна/Desktop/UD_English/en-ud-dev.conllu', 'r', encoding='utf-8') as file:
+    with open ('en-ud-dev.conllu', 'r', encoding='utf-8') as file:
         corpus = file.read()
 
     for form in surface_forms:
