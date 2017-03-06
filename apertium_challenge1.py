@@ -21,8 +21,7 @@ def flatten_conllu():
                 if 'conj' in sentence[i]:
                     sentence[i] = head_label(sentence, sentence[i], 'conj')
                 if 'parataxis' in sentence[i]:
-                    sentence[i] = head_label(
-                        sentence, sentence[i], 'parataxis')
+                    sentence[i] = head_label(sentence, sentence[i], 'parataxis')
 
             sentence = '\n'.join(sentence)
             file.write(sentence)
