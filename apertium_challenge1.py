@@ -9,7 +9,7 @@ def head_label(sentence, word, function):
     return word
 
 
-def flattened_conllu():
+def flatten_conllu():
     with open('ru-ud-train.conllu', 'r', encoding='utf-8') as file:
         corpora = file.read().split('\n\n')
 
@@ -30,4 +30,4 @@ def flattened_conllu():
 
 
 if __name__ == '__main__':
-    flattened_conllu()
+    flatten_conllu()
