@@ -1,8 +1,7 @@
 import re
+import sys
 from collections import Counter
 from streamparser import parse
-
-# works only for english, because this is just an example
 
 
 def parse_surface_forms(apertium_string):
@@ -15,8 +14,8 @@ def parse_surface_forms(apertium_string):
     return surface_forms
 
 
-def count_labels(surface_forms):
-    with open('en-ud-train.conllu', 'r', encoding='utf-8') as file:
+def count_labels(surface_forms, input_conllu):
+    with open(input_conllu, 'r', encoding='utf-8') as file:
         corpus = file.read()
 
     for form in surface_forms:
@@ -49,9 +48,10 @@ def count_labels(surface_forms):
 
 
 def main():
-    apertium_string = '^cats/cat<n><pl>$ ^are/be<vbser><pres>$ ^pretty/pretty<preadv>/pretty<adj><sint>$'
+    apertium_string = sys.argv[1]
+    input_conllu = sys.argv[2]
     surface_forms = parse_surface_forms(apertium_string)
-    count_labels(surface_forms)
+    count_labels(surface_forms, input_conllu)
 
 
 if __name__ == '__main__':
