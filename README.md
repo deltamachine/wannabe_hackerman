@@ -9,6 +9,6 @@ GSoC 2017: coding challenges
 
 * _apertium_challenge2:_ Write a script that takes a sentence in Apertium stream format and for each surface form applies the most frequent label from the labelled corpus.
 '''python
->>> $ python "string in apertium-string-format" labelled-corpus.conllu
+$ python "string in apertium-string-format" labelled-corpus.conllu
 '''
 
