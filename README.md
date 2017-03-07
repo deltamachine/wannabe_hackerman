@@ -8,5 +8,7 @@ GSoC 2017: coding challenges
  * Words with the @parataxis relation take the label of their head
 
 * _apertium_challenge2:_ Write a script that takes a sentence in Apertium stream format and for each surface form applies the most frequent label from the labelled corpus.
->>> "string in apertium-string-format" labelled-corpus.conllu
+```python
+>>>$ python "string in apertium-string-format" labelled-corpus.conllu
+```
 
