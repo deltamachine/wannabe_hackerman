@@ -19,22 +19,10 @@ def count_labels(surface_forms, input_conllu):
         corpus = file.read()
 
     for form in surface_forms:
-        labels = []
+        form_regexp = '\n[0-9]+\t' + \
+            form + '\t.*?\t.*?\t.*?\t.*?\t.*?\t(.*?)\t'
 
-        # fixing the register problem
-        low_form_regexp = '\n[0-9]+\t' + \
-            form.lower() + '\t.*?\t.*?\t.*?\t.*?\t.*?\t.*?\t'
-
-        upper_form_regexp = '\n[0-9]+\t' + form[0].upper() + \
-            form[1:] + '\t.*?\t.*?\t.*?\t.*?\t.*?\t.*?\t'
-
-        words = re.findall(low_form_regexp, corpus)
-        words += re.findall(upper_form_regexp, corpus)
-
-        for word in words:
-            label = word.split('\t')[7]
-            labels.append(label)
-
+        labels = re.findall(form_regexp, corpus, flags = re.IGNORECASE)
         most_frequent_label = Counter(labels).most_common(1)
 
         if most_frequent_label != []:
@@ -50,6 +38,7 @@ def count_labels(surface_forms, input_conllu):
 def main():
     apertium_string = sys.argv[1]
     input_conllu = sys.argv[2]
+
     surface_forms = parse_surface_forms(apertium_string)
     count_labels(surface_forms, input_conllu)
 
