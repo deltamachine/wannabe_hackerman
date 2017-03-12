@@ -27,10 +27,9 @@ def count_labels(surface_forms, input_conllu):
 
         if most_frequent_label != []:
             print(
-                '%s: %s, %s times' %
+                '%s: %s' %
                 (form,
-                 most_frequent_label[0][0],
-                 most_frequent_label[0][1]))
+                 most_frequent_label[0][0]))
         else:
             print(form, ': not found in corpus')
 
