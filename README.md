@@ -7,7 +7,7 @@ GSoC 2017: coding challenges
  * Words with the @conj relation take the label of their head
  * Words with the @parataxis relation take the label of their head
 
-* _count_accuracy_index.py:_ A script that does the following:
+* _calculate_accuracy_index.py:_ A script that does the following:
  * Takes -train.conllu file and calculates the table: surface_form - label - frequency
  * Takes -dev.corpus and for each token assigns the most frequent label from the table
  * Calculates the accuracy index
