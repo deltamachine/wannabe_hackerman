@@ -23,6 +23,10 @@ def parse_sf_labels(input_train):
         else:
             freq_table[form] = []
             freq_table[form].append(label)
+            
+    for key, value in freq_table.items():
+        sorted_value = Counter(value).most_common()
+        freq_table[key] = sorted_value
 
     return freq_table
 
@@ -47,7 +51,7 @@ def accuracy_index(input_dev, freq_table):
 
         try:
             train_form = freq_table[form]
-            if label == train_form[0]:
+            if label == train_form[0][0]:
                 c += 1
         except Exception:
             t -= 1
